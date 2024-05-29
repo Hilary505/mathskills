@@ -5,26 +5,25 @@ import (
 	"strconv"
 	"strings"
 )
+
 // function that calculates the median based on lengths being odd or even
-func FindMedian(str string) int {
-	data1 := strings.Fields(str)
-	ints := make([]int, len(data1))
-	for i, s := range data1 {
-		num, err := strconv.Atoi(s)
+func FindMedian(str string) float64 {
+	data := strings.Fields(str)
+	float := make([]float64, len(data))
+	for i, s := range data {
+		value, err := strconv.ParseFloat(s, 64)
 		if err != nil {
 			panic(err)
 		}
-		ints[i] += num
+		float[i] += value
 	}
-	// package sorts arranges data in descending or ascending order
-	sort.Ints(ints)
-	// var median is used to store the result of median
-	var median int
-	n := len(ints)
-	if n%2 == 1 {
-		median = ints[n/2]
+	sort.Float64s(float)
+
+	var median float64 // store the median value
+	if len(float)%2 == 1 {
+		median = float[(len(float))/2]
 	} else {
-		median = (ints[n/2-1] + ints[n/2]) / 2
+		median = (float[(len(float)/2)-1] + float[(len(float))/2]) / 2
 	}
 	return median
 }
