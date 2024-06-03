@@ -2,26 +2,24 @@ package math_skills
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
-// function that converts string to integer
-func ConvertStringToInt(str string) int {
-	Int_Average, err := strconv.ParseInt(str, 10, 64)
-	if err != nil {
-		fmt.Println("An error occured", err)
-		return 0
-	}
-	return int(Int_Average)
-}
-// function calculates the average 
-func Average(str string) int {
-	data1 := strings.Fields(str)
-	sum := 0
-	for _, ch := range data1 {
-		num := ConvertStringToInt(ch)
+
+// function calculates the average
+func Average(str string) float64 {
+	data := strings.Split(str, "\n")
+	var sum float64
+
+	for _, v := range data {
+		num, err := strconv.ParseFloat(v, 64)
+		if err != nil {
+			fmt.Println("An error:", err)
+			os.Exit(1)
+		}
 		sum += num
 	}
-	var average = (sum) / len(data1)
+	var average = (sum) / float64(len(data))
 	return average
 }
