@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
- a "maths/math_skills" // import package math_skills as an alias
-	"os"
 	"math"
+	a "maths/math_skills" // import package math_skills as an alias
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -21,11 +23,24 @@ func main() {
 		return
 	}
 	data := string(contents)
+	var data1 []float64
+	for _, val := range strings.Fields(data) {
+		newval, err := strconv.ParseFloat(val, 64)
+		if err != nil {
+			fmt.Println("Error converting data:", err)
+			continue // Skip invalid data points
+		}
+		data1 = append(data1, newval)
+	}
+
 	//call other functions  to main for execution
 	findAverage := a.Average(data)
 	fmt.Println("Average:", math.Round(findAverage))
 	findMedian := a.FindMedian(data)
 	fmt.Println("Median:", math.Round(findMedian))
-	findVariance := a.variance(data)
-	fmt.Println("Variance:",math.Round(findVariance))
+	findVariance := a.Variance(data1)
+	fmt.Println("Variance:", math.Round(findVariance))
+	findStandardDeviation := a.StandardDeviation(findVariance)
+	fmt.Println("Standard Deviation:", math.Round(findStandardDeviation))
+
 }

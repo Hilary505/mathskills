@@ -9,8 +9,13 @@ import (
 
 // function calculates the average
 func Average(str string) float64 {
-	data := strings.Split(str, "\n")
-	var sum float64
+     
+	data := strings.Fields(str)
+     if len(data) == 0.0 {
+		fmt.Println("The data file is empty, enter some data")
+		os.Exit(0)
+	 }
+	sum := 0.0
 
 	for _, v := range data {
 		num, err := strconv.ParseFloat(v, 64)
@@ -20,6 +25,6 @@ func Average(str string) float64 {
 		}
 		sum += num
 	}
-	var average = (sum) / float64(len(data))
+	average := sum / float64(len(data))
 	return average
 }

@@ -1,19 +1,33 @@
-package math_skills 
+package math_skills
 
 import (
-
+	"math"
 )
 
-func sumOfSquaredDifference(a  float64) float64{
-	var sum float64
-	for i , char := range data {
-		sum = ((char[i] - a.Average)(char[i] - a.Average))
+// function that calculates variance  give slice of data
+func Variance(data []float64) float64 {
+	if len(data) == 0 {
+		return 0
 	}
-	return sum
+	// initialize sum to zero
+
+	sum := 0.0
+	for _, value := range data {
+		sum += value
+	}
+
+	mean := sum / float64(len(data))
+	variance := 0.0
+	for _, value := range data {
+		variance += (value - mean) * (value - mean)
+	}
+	//initialize variance to zero
+
+	return variance / float64(len(data))
 }
 
-func Variance(sum   float64) float64{
-	var variance float64
-	variance = sum / len(data)
-	return variance
+// function that calculates standarddeviation
+func StandardDeviation(variance float64) float64 {
+	sd := math.Sqrt(variance)
+	return sd
 }

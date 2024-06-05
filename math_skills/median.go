@@ -8,6 +8,7 @@ import (
 
 // function that calculates the median based on lengths being odd or even
 func FindMedian(str string) float64 {
+
 	data := strings.Fields(str)
 	float := make([]float64, len(data))
 	for i, s := range data {
