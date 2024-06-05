@@ -16,7 +16,7 @@ clone this repository
 ```
 Bash
 
-git clone https://
+git clone https://learn.zone01kisumu.ke/git/hilaromondi/math-skills.git
 
 ``` 
 

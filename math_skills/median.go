@@ -3,7 +3,6 @@ package math_skills
 import "sort"
 
 func FindMedian(data []float64) float64 {
-
 	float := make([]float64, len(data))
 	for i, s := range data {
 		float[i] += s
