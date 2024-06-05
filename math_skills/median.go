@@ -1,26 +1,16 @@
 package math_skills
 
-import (
-	"sort"
-	"strconv"
-	"strings"
-)
+import "sort"
 
-// function that calculates the median based on lengths being odd or even
-func FindMedian(str string) float64 {
+func FindMedian(data []float64) float64 {
 
-	data := strings.Fields(str)
 	float := make([]float64, len(data))
 	for i, s := range data {
-		value, err := strconv.ParseFloat(s, 64)
-		if err != nil {
-			panic(err)
-		}
-		float[i] += value
+		float[i] += s
 	}
 	sort.Float64s(float)
 
-	var median float64 // store the median value
+	var median float64
 	if len(float)%2 == 1 {
 		median = float[(len(float))/2]
 	} else {

@@ -16,7 +16,7 @@ clone this repository
 ```
 Bash
 
-git clone https://<your_repository_link>
+git clone https://
 
 ``` 
 
@@ -64,12 +64,3 @@ Hilary  Omondi -initial work- https://learn.zone01kisumu.ke/git/hilaromondi
 ## License 
 
 This project is licensed under the MIT License. 
-
-## Acknowledgments
-
-Congrats to anyone who participated 
-
-Inspiration
-
-etc 
-

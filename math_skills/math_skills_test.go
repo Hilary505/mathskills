@@ -6,16 +6,18 @@ import (
 )
 
 func TestAverage(t *testing.T) {
+	data := []float64{1.0, 2.0, 3.0, 4.0, 5.0}
 	expected := 3.0
-	result := Average("1.0\n2.0\n3.0\n4.0\n5.0\n")
+	result := Average(data)
 	if result != expected {
 		t.Errorf("got %v, wanted %v", expected, result)
 	}
 }
 
 func TestMedian(t *testing.T) {
+	data := []float64{1.0, 2.0, 3.0, 4.0, 5.0}
 	expected := 3.0
-	result := FindMedian("1.0\n2.0\n3.0\n4.0\n5.0\n")
+	result := FindMedian(data)
 	if result != expected {
 		t.Errorf("got %v, wanted %v", expected, result)
 	}
@@ -24,7 +26,7 @@ func TestMedian(t *testing.T) {
 func TestVariance(t *testing.T) {
 	data := []float64{1.0, 2.0, 3.0, 4.0, 5.0}
 	expected := 2.0
-	result := Variance(data)
+	result := Variance(data, Average(data))
 	if result != expected {
 		t.Errorf("got %v, wanted %v", expected, result)
 	}
