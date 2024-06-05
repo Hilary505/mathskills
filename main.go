@@ -12,23 +12,24 @@ import (
 func main() {
 
 	if len(os.Args) != 2 {
+		// usage
 		fmt.Println("The program expects atleast 2 arguments and not more than 2")
-		os.Exit(0)
+		os.Exit(1)
 	}
 
 	myargs := os.Args[1]
 	contents, err := os.ReadFile(myargs)
 	if err != nil {
-		fmt.Println("An error has just occurred", err)
-		return
+		fmt.Printf("error reading data file: %q\n%v\n", myargs, err)
+		os.Exit(1)
 	}
 	data := string(contents)
 	var data1 []float64
 	for _, val := range strings.Fields(data) {
 		newval, err := strconv.ParseFloat(val, 64)
 		if err != nil {
-			fmt.Println("Error converting data:", err)
-			continue
+			fmt.Printf("error converting: %q to number\n%v\v\n", val, err)
+			os.Exit(1)
 		}
 		data1 = append(data1, newval)
 	}
