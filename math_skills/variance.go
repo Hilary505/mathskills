@@ -21,7 +21,6 @@ func Variance(data []float64) float64 {
 	for _, value := range data {
 		variance += (value - mean) * (value - mean)
 	}
-	//initialize variance to zero
 
 	return variance / float64(len(data))
 }
