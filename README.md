@@ -16,7 +16,7 @@ clone this repository
 ```
 Bash
 
-git clone https://<your_repository_link>
+git clone https://github.com/Hilary505/mathskills.git
 
 ``` 
 
@@ -57,19 +57,13 @@ go test -v
 ```
 The test files are designed to test if the functions that we created are actually working as expected and   the results are correct.
 
-## Authors
-
-Hilary  Omondi -initial work- https://learn.zone01kisumu.ke/git/hilaromondi  
 
 ## License 
 
 This project is licensed under the MIT License. 
 
-## Acknowledgments
+## Author
 
-Congrats to anyone who participated 
+Hilary  Omondi -initial work- https://learn.zone01kisumu.ke/git/hilaromondi  
 
-Inspiration
-
-etc 
 
